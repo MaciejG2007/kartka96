@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width">
+        <title>Wesołych Wakacji</title>
+    </head>
+    <body>
+        <div class="container" id="container">
+            <div class="book-content">
+                <div class="book">
+                    <div class="face-front" id="p1" class="color">
+											<p id="text10">Kliknij tutaj aby otowrzyć kartkę-----></p>
+                    </div>
+                    <div class="face-back" id="trsf"> 
+											<h1 style="font-family: cursive;">Szanowny Panie!</h1>
+												<p id="text11">
+													
+<br>
+Z okazji zbliżających się wakacji, chciałbym złożyć najserdeczniejsze życzenia. Dziękuję za Pana trud i zaangażowanie jako nauczyciel.
+<br>
+Życzę Panu niezapomnianych wakacji, pełnych radości i beztroski. Cieszmy się odpoczynkiem i wracajmy pełni energii na kolejny rok szkolny.
+<br>
+Dziękuję za Pana poświęcenie i profesjonalizm. Cieszymy się na kolejny rok spędzony pod Pana opieką.
+<br>
+Najlepsze życzenia i udanych wakacji!
+												</p>
+										<br>
+										<img  style="border-radius: 100px;" src="wakacje.png" height="200px">
+									<br>
+													<br>
+                    </div>
+                </div>
+                <div class="book">
+                    <div class="face-back">
+											<img  id="gif" style="border-radius: 200px;" src="grif56.gif">
+                    </div>
+                </div>
+               
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            *{
+	padding: 0;
+	margin: 0;
+	font-family: 'Lucida Sans';
+}
+p{
+	margin-top: 10px;
+	font-size: 13px;
+	text-align: justify;
+}
+.container, .book-content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    font-family: 'Lucida Sans';
+}
+.container{
+	
+	width: 100%;
+	height: 100vh;
+	background-image: url('grif.gif');
+    font-family: 'Lucida Sans';
+    margin: 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover ;
+}
+.text9 {
+	text-align: center;
+	font-size: 15px;
+}
+.book-content{
+	width: 65%;
+	min-width: 500px;
+	max-width: 850px;
+	height: 750px;
+	perspective: 1000px;
+	transition: 0.15s;
+    margin:auto
+}
+.book{
+	position: absolute;
+	width: 65%;
+	height: 100%;
+	transition: 1s;
+	transform-style: preserve-3d;
+	transform-origin: left; 
+    margin-bottom: 50px;
+    margin-left: 565px;
+	margin-top:40px;
+    font-family: 'Lucida Sans';
+}
+.face-front, .face-back{
+    text-align: center;
+    width: 100%;
+	height: 100%;
+	background-image: url('trop.jpg');
+	padding: 30px;
+	box-sizing: border-box;
+	overflow: hidden;
+	align-items: center;
+    background-size: cover;
+    font-family: 'Lucida Sans';
+}
+.face-front{
+	
+    box-shadow: inset 3px 0px 20px -7px black;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+    align-items: center;
+    font-family: 'Lucida Sans';
+}
+.face-back{
+	margin-bottom: 100px;
+	padding: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateZ(-1px) rotateY(180deg);
+	box-shadow: inset -3px 1px 20px -7px black;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+    font-family: 'Lucida Sans';
+}
+#text10
+{
+	text-align:	center;
+	opacity: 0.5;
+	margin-top: 300px;
+	font-size: 20px;
+}
+#gif{
+	transform: translateZ(-1px) rotateY(180deg);
+	border: 5px black;
+	max-width: 500px;
+}
+#text11
+{
+ 	color: white;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 20px;
+}
+#text12
+{
+	margin-top: 100px;
+	font-size: 30px;
+	color: yellow;
+}
+h1
+{
+	color: white;
+	border-radius: 30px;
+	font-family: 'cursive';
+}
+.trnsf{
+	transform: translateX(80px);
+}
+.trnsf-reset{
+	transform: translateX(0px);
+}
+p{
+	font-family: cursive;
+}
+@media screen and (min-width: 800px){
+	p{
+		font-size: 12px;
+	}
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(45deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(45deg);
+  }
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+
+        </style>
+        <script>
+            var front = document.querySelector('.face-front');
+var back = document.querySelector('.face-back');
+var flip = document.querySelector('.book-content');
+var uno = document.querySelectorAll('.book');
+var portada = document.querySelectorAll('#portada');
+
+var contZindex = 2;
+var customZindex = 1;
+
+for (var i = 0; i < uno.length; i++) {
+	uno[i].style.zIndex = customZindex;
+	customZindex--;
+
+	uno[i].addEventListener('click', function(e){
+
+		var tgt = e.target;
+		var unoThis = this;
+
+		unoThis.style.zIndex = contZindex;
+		contZindex++;
+
+		if (tgt.getAttribute('class') == 'face-front') {
+			unoThis.style.zIndex = contZindex;
+			contZindex +=20;
+			setTimeout(function(){
+				unoThis.style.transform = 'rotateY(-180deg)';
+			}, 500);
+		}
+		if (tgt.getAttribute("class") == 'face-back') {
+			unoThis.style.zIndex = contZindex;
+			contZindex +=20;
+
+			setTimeout(function(){
+				unoThis.style.transform = 'rotateY(0deg)';
+			}, 500);
+		}
+
+		if (tgt.getAttribute('id') == 'portada') {
+			flip.classList.remove("trnsf-reset");
+			flip.classList.add("trnsf");
+		}
+		if (tgt.getAttribute('id') == 'trsf') {
+			flip.classList.remove("trnsf");
+			flip.classList.add("trnsf-reset");
+		}
+
+	});
+}
+        </script>
+    </body>
+</html>
